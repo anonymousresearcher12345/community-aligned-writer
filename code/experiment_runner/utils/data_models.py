@@ -1,0 +1,54 @@
+from datetime import datetime
+from enum import Enum
+from typing import List, Optional
+
+from pydantic import BaseModel
+
+
+class ProposedNote(BaseModel):
+    post_id: str
+    note_text: str
+
+
+class MisleadingTag(str, Enum):
+    factual_error = "factual_error"
+    manipulated_media = "manipulated_media"
+    outdated_information = "outdated_information"
+    missing_important_context = "missing_important_context"
+    disputed_claim_as_fact = "disputed_claim_as_fact"
+    misinterpreted_satire = "misinterpreted_satire"
+    other = "other"
+
+
+class ProposedMisleadingNote(ProposedNote):
+    misleading_tags: List[MisleadingTag]
+
+
+class Media(BaseModel):
+    media_key: str
+    media_type: str
+    url: Optional[str] = None
+    preview_image_url: Optional[str] = None
+    height: Optional[int] = None
+    width: Optional[int] = None
+    duration_ms: Optional[int] = None
+    view_count: Optional[int] = None
+
+
+class Post(BaseModel):
+    post_id: str
+    author_id: str
+    created_at: datetime
+    text: str
+    media: List[Media]
+
+
+class PostWithContext(BaseModel):
+    post: Post
+    quoted_post: Optional[Post] = None
+    in_reply_to_post: Optional[Post] = None
+    # User-submitted note requests from the API (un-vetted):
+    # [{"suggestion_id": str, "suggestion": str, "source_link": str|None}]
+    note_request_suggestions: Optional[List[dict]] = None
+    # [{"url": str, "count": str}]
+    suggested_source_links_with_counts: Optional[List[dict]] = None

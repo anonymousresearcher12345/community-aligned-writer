@@ -1,0 +1,11 @@
+# Analysis and notebook execution dependencies.
+numpy
+pandas
+matplotlib
+scipy
+statsmodels
+nbformat
+nbconvert
+ipykernel
+# Parquet input for prepare_data.py.
+pyarrow

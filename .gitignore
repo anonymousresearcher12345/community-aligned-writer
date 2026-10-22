@@ -1,0 +1,25 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+
+# Credentials and private configuration.
+.env
+.env.*
+!.env.example
+code/config.json
+
+# Runtime and training outputs.
+*.log
+*.out
+code/outputs/
+code/rating_prediction/data/
+code/rating_prediction/checkpoints/
+*.safetensors
+*.ckpt
+*.npz
+*.parquet
+
+# Generated analysis figures are reproducible from the notebook.
+analysis/figures/

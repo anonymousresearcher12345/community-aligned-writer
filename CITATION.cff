@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+message: "If you use this research code, please cite this work. Publication details will be added when available."
+title: "Community Alignment for AI Community Note Writing"
+type: software
+license: MIT
+authors:
+  - name: "Anonymous Authors"

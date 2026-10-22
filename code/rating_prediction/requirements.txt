@@ -1,0 +1,11 @@
+# Python 3.10; recorded training versions from README.md.
+torch==2.8.0
+transformers==4.57.1
+pandas==2.3.1
+numpy==1.26.4
+scikit-learn==1.7.1
+pyarrow==22.0.0
+langdetect==1.0.9
+tqdm==4.67.1
+# Transformers Trainer runtime dependency.
+accelerate
